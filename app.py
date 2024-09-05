@@ -328,5 +328,8 @@ def history():
 def index():
     return redirect(url_for('login'))
 
-if __name__ == '__main__':
-    socketio.run(app, debug=True)
+if __name__ == "__main__":
+    from gevent import pywsgi
+    from geventwebsocket.handler import WebSocketHandler
+
+    pywsgi.WSGIServer(('', 5000), app, handler_class=WebSocketHandler).serve_forever()
