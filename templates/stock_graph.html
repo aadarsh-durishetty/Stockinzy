@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/png" href="static/foot_logo.png" />
+    <title >{{ stock_symbol }} - Stock Graph</title>
+    <style>
+        body {
+            background: linear-gradient(rgb(255, 255, 255), rgb(166, 196, 226));
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 50px;
+            margin: 0;
+            margin-bottom: 50px;
+        }
+        img {
+            width: 80%;
+            max-width: 800px;
+            height: auto;
+        }
+        a {
+            display: inline-block; /* Makes the margin take effect */
+            color: black;
+            text-decoration: underline;
+            margin-top: 20px;
+            font-size: 16px;
+            font-style: italic;
+            font-weight: bold;
+            margin-bottom: 20px; /* Adds space below the image */
+            transition: color 0.3s;
+        }
+        a:hover {
+            color: #066317;
+        }
+        h1{
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <h1>{{ stock_symbol }} - Stock Analysis Graph</h1>
+    <img src="data:image/png;base64,{{ plot_url }}" alt="Stock Graph">
+    <br>
+    <a href="{{ url_for('overview') }}">Back to overview</a>
+</body>
+</html>

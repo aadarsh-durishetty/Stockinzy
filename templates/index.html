@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/png" href="static/foot_logo.png" />
+    <title>Stock Price Prediction</title>
+    <style>
+      body {
+        background: linear-gradient(slateblue, dodgerblue);
+        background-size: cover;
+        font-family: Arial, sans-serif;
+        text-align: center;
+        padding-top: 160px;
+        margin: 10px 10px 10px 10px;
+      }
+      h2 {
+        color: #000000;
+        font-size: 28px;
+      }
+      h3 {
+        color: #000000;
+      }
+      input[type="text"],
+      select {
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 50px;
+        border: 1px solid #ddd;
+        width: 200px;
+        margin-right: 10px;
+        box-sizing: border-box;
+        margin-bottom: 300px;
+      }
+      button[type="submit"] {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      button[type="submit"]:hover {
+        background-color: green;
+        transform: translateY(2px);
+      }
+    </style>
+</head>
+<body>
+    <h2>Stockinzy - Stock Price Prediction</h2>
+    <h3>Enter the date and select the stock for analysis</h3>
+    <form method="POST" action="/">
+      <input type="text" name="date" placeholder="DD-MM-YYYY" required />
+      <select name="stock_symbol">
+        <option value="AAPL">Apple Inc.</option>
+        <option value="ADBE">Adobe Inc.</option>
+        <option value="AMZN">Amazon.com Inc.</option>
+        <option value="CRM">Salesforce Inc.</option>
+        <option value="CSCO">Cisco Sysytems Inc.</option>
+        <option value="GOOGL">Alphabet Inc.</option>
+        <option value="IBM">International Business Machines Inc.</option>
+        <option value="INTC">Intel Corporation</option>
+        <option value="META">Meta Platforms Inc.</option>
+        <option value="MSFT">Microsoft Corporation</option>
+        <option value="NFLX">Netflix Inc.</option>
+        <option value="NVDA">NVIDIA Corporation.</option>
+        <option value="ORCL">Oracle Corporation</option>
+        <option value="TSLA">Tesla Inc.</option>
+      </select>
+      <button type="submit">Predict</button>
+    </form>
+</body>
+</html>

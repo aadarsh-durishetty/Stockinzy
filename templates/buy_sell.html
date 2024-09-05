@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/png" href="static/foot_logo.png" />
+    <title>Stockinzy - Buy/Sell</title>
+    <style>
+        body {
+            background: linear-gradient(rgb(255, 255, 255), rgb(166, 196, 226));
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 160px;
+            margin-bottom: 100px;
+            margin-top: -140px;
+        }
+        .header-image {
+            width: 200px; /* Adjust size as needed */
+            height: 100px;
+            margin-bottom: 10px; /* Space between the image and the heading */
+        }
+        h1 {
+            margin-top: -20px;
+            font-size: 1.8em;
+            font-style: italic;
+        }
+        .stock {
+            display: inline-block;
+            margin: 20px;
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #ddd; /* Light boundary around each stock */
+            border-radius: 10px;
+            background-color: #f9f9f9; /* Light background for each stock */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+        }
+        .stock img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+        }
+        .stock p {
+            font-size: 16px;
+            margin: 10px 0;
+        }
+        .stock-symbol, .stock-owned {
+            color: black; /* Set font color to black */
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            margin: 5px;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: green;
+            transform: translateY(2px); /* Move button up slightly on hover */
+        }
+        .stock-info {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        .footer {
+            position:relative;
+            bottom: -30px;
+            width: 100%;
+            text-align: center;
+            margin-bottom: -50px;
+        }
+        .back-link {
+            font-weight: bold;
+            font-style: italic;
+            font-size: 16px;
+            color: #000000;
+            text-decoration: underline;
+            transition: color 0.3s ease;
+
+        }
+        .back-link:hover {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <img src="static/logimg3.png" alt="Header Image" class="header-image">
+    <h1>NASDAQ ® Listed.</h1>
+    <div>
+        {% for stock in stocks %}
+        <div class="stock">
+            <img src="{{ url_for('static', filename=stock.stock_symbol + '.jpg') }}" alt="{{ stock.stock_symbol }}">
+            <p class="stock-symbol">{{ stock.company }}</p>
+            <p class="stock-owned">Owned: {{ stock.owned }}</p>
+            <div class="stock-info" id="stock-info-{{ stock.stock_symbol }}">
+                <form method="post">
+                    <input type="hidden" name="stock" value="{{ stock.stock_symbol }}">
+                    <button type="submit" name="action" value="Buy">Buy</button>
+                    <button type="submit" name="action" value="Sell">Sell</button>
+                </form>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="footer">
+        <a href="{{ url_for('page1') }}" class="back-link">Back to Main Menu</a>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.min.js"></script>
+    <script>
+      var socket = io();
+
+      socket.on('update', function(data) {
+        var stockElement = document.querySelector(`#stock-info-${data.stock_symbol}`);
+        if (stockElement) {
+          if (data.action === 'Buy') {
+            stockElement.querySelector('.stock-owned').textContent = parseInt(stockElement.querySelector('.stock-owned').textContent) + 1;
+          } else if (data.action === 'Sell') {
+            stockElement.querySelector('.stock-owned').textContent = parseInt(stockElement.querySelector('.stock-owned').textContent) - 1;
+          }
+        }
+      });
+    </script>
+</body>
+</html>

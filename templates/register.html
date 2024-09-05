@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/png" href="static/foot_logo.png" />
+    <title>Stockinzy - Register</title>
+    <style>
+        h2 {
+            margin-top: -100px;
+            margin-left: 700px;
+            margin-bottom: -40px;
+        }
+        body {
+            background: linear-gradient(rgb(255, 255, 255), rgb(166, 196, 226));
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            font-style: italic;
+            text-align: center;
+            padding-top: 160px;
+            margin: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        form {
+            margin-top: 10px;
+            display: inline-block;
+            padding: 50px;
+            border-radius: 50px;
+            margin-bottom: 100px;
+            margin-left: 700px;
+        }
+        input {
+            display: block;
+            margin: 10px auto;
+            padding: 10px;
+            width: 250px;
+            border: 1px solid #ffffff;
+            border-radius: 50px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            margin: 10px;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: green;
+            transform: translateY(2px);
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            width: 100%;
+        }
+        .images {
+            margin-top: -70px;
+            margin-left: -70px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            position: absolute;
+            left: 10%;
+        }
+        .image-row {
+            display: flex;
+            align-items: center;
+        }
+        .images img {
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .images img:hover {
+            transform: scale(1.1);
+        }
+        .popup {
+            position: absolute;
+            left: 110%;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.75);
+            color: white;
+            padding: 5px;
+            border-radius: 5px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+        }
+        .images img:hover + .popup {
+            opacity: 0.8;
+        }
+        #img1, #img2, #img3, #img4 {
+            width: 250px;
+            height: 200px;
+            margin: 10px;
+            border-radius: 50px;
+        }
+        a {
+            font-style: italic;
+            font-weight: bold;
+            color: black;
+            text-decoration: underline;
+            margin-top: 20px;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: #0f4719;
+        }
+    </style>
+</head>
+<body>
+    <h2>Sign up for Stockinzy</h2>
+    <div class="container">
+        <div class="images">
+            <div class="image-row">
+                <div class="image-container">
+                    <img id="img1" src="static/img5.jpg" alt="Image 1">
+                    <div class="popup">Nasdaq listed No.1 Stock Brokerage firm.</div>
+                </div>
+                <div class="image-container">
+                    <img id="img4" src="static/img6.jpg" alt="Image 4">
+                    <div class="popup">Best Financial Analyst guidance.</div>
+                </div>
+            </div>
+            <div class="image-row">
+                <div class="image-container">
+                    <img id="img2" src="static/img7.jpg" alt="Image 2">
+                    <div class="popup">Highest Profit FY 2023 NYC.</div>
+                </div>
+                <div class="image-container">
+                    <img id="img3" src="static/img8.jpg" alt="Image 3">
+                    <div class="popup">Advanced AI + BigData Technology.</div>
+                </div>
+            </div>
+        </div>
+        <form method="post">
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit">Register</button>
+        </form>
+    </div>
+    <br>
+    <a href="/">Already have an account? Sign in here</a>
+</body>
+</html>

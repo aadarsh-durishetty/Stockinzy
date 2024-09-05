@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/png" href="static/foot_logo.png" />
+    <title>Stockinzy - Login</title>
+    <style>
+        body {
+            background: linear-gradient(rgb(255, 255, 255), rgb(166, 196, 226));
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 100px;
+            margin: 0;
+            margin-bottom: 20px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            margin-bottom: 50px;
+        }
+
+        .images {
+            margin-top: -140px;
+            margin-left: -100px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        
+        #img1, #img2, #img4, #img5 {
+            width: 200px;
+            height: 200px ;
+            border-radius: 20px;
+        }
+        #img3 {
+            width: 400px;
+            height: 260px;
+        }
+
+        .image-row {
+            display: flex;
+        }
+
+        .image-container {
+            margin: 10px;
+        }
+
+        .image-container img {
+            cursor: pointer;
+            transition: transform 0.3s;
+            width: 150px;
+            height: 150px;
+            border-radius: 0;
+        }
+
+        .image-container img:hover {
+            transform: scale(1.1);
+        }
+
+        form {
+            display: inline-block;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: white;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+            margin-left: 120px;
+            margin-top: 80px;
+        }
+
+        input {
+            display: block;
+            margin: 10px auto;
+            padding: 10px;
+            width: 250px;
+            border-radius: 50px;
+            border: 1px solid #cccccc;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #3a6a9e;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            margin: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: green;
+            transform: translateY(2px);
+        }
+
+        a {
+            font-style: italic;
+            font-weight: bold;
+            color: black;
+            text-decoration: underline;
+            margin-top: 20px;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: #066317;
+        }
+        
+        h1 {
+            margin-top: 60px;
+            margin-left: 380px;
+            color: rgb(45, 45, 88);
+            font-style: italic;
+        }
+
+        h2 {
+            margin-left: 385px;
+            margin-top: -10px;
+            font-style: oblique;
+            margin-bottom: -50px;
+            color: rgb(38, 38, 59);
+        }
+        p {
+          margin-top: -5px;
+          margin-left: -345px;
+          border-width: 1px;
+          padding: 1px;
+          height: 120px;
+          width: 400px;
+          /* border: 1px solid #ddd; */
+          border-radius: 4px;
+          font-weight: bolder;
+          font-size: 1.3em;
+          /* font-style: italic; */
+          color: rgb(45, 45, 88);
+      }
+      .foot-logo{
+        width: 120px;
+        height: 40px;
+        margin-top: 350px;
+        margin-left: -345px;
+      }
+      .foot-line{
+        margin-top: -110px;
+        font-style: italic;
+      }
+</style>
+</head>
+<body>
+    <h1>Sign in to Stockinzy</h1>
+    <h2> where your stock is at our stake.</h2>
+    <div class="container">
+        <div class="images">
+            <div class="image-row">
+                <div class="image-container">
+                    <img id="img1" src="static/logimg1.jpg" alt="Image 1">
+                </div>
+                <div class="image-container">
+                    <img id="img2" src="static/logimg4.jpg" alt="Image 2">
+                </div>
+            </div>
+            <div class="image-row">
+                <div class="image-container">
+                    <img id="img3" src="static/logimg3t.png" alt="Image 3">
+                </div>
+            </div>
+            <div class="image-row">
+                <div class="image-container">
+                    <img id="img4" src="static/logimg6.jpg" alt="Image 4">
+                </div>
+                <div class="image-container">
+                    <img id="img5" src="static/logimg5.jpg" alt="Image 5">
+                </div>
+            </div>
+        </div>
+        <form method="post">
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+        <div class="tag">
+            <img src="static/goatx-logo.png" alt="GoatX-logo" class="foot-logo">
+            <p>powered</p>
+            <p class="foot-line">when future meets excellence.</p>
+        </div>
+    </div>
+    <br>
+    <a href="/register">Don't have an account? Sign up here</a>
+</body>
+</html>

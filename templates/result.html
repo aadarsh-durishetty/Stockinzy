@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" type="image/png" href="static/foot_logo.png" />
+    <title>Prediction Result</title>
+    <style>
+      body {
+        background: linear-gradient(rgb(255, 255, 255), rgb(166, 196, 226));
+        background-size: cover;
+        font-family: 'Arial', sans-serif;
+        color: #333;
+        /* margin: 0; */
+        padding: 160px;
+        margin-bottom: -10px;
+      }
+      .container {
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 50%;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        transition: border-radius 0.5s, background-image 0.5s;
+        margin-top: -100px;
+      }
+
+      .container:hover {
+        border-radius: 10px;
+        background-size: cover;
+      }
+
+      h2 {
+        font-style: italic;
+        color: #00308F;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      .result-text {
+        font-size: 24px;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      .action-message {
+        font-size: 20px;
+        font-style: italic;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      .profit-message {
+        font-size: 20px;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 20px;
+        color: {% if 'increase' in prediction.lower() %}green{% else %}red{% endif %};
+      }
+      .price-message {
+        font-size: 20px;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      .back-link {
+        display: block;
+        text-align: center;
+        margin-top: 20px;
+        font-size: 18px;
+        font-weight: bold;
+        font-style: italic;
+        color: black;
+        transition: color 0.3s;
+      }
+      .back-link:hover{
+        color: rgb(24, 76, 24);
+      }
+      .price-message{
+        font-weight: bold;
+      }
+      .action-message{
+        font-weight: bolder;
+      }
+      .back-link{
+        margin-top: 50px;
+      }
+
+      .note p{
+        margin-left: 170px;
+        /* margin-bottom: 100px; */
+        margin-top: 30px;
+        margin-bottom: -1px;
+      }
+
+      .header-image {
+            width: 200px; /* Adjust size as needed */
+            height: 100px;
+            margin-top: -550px; /* Space between the image and the heading */
+            margin-bottom: -100px;
+            margin-left: 360px;
+            border-radius: 50px;
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+      <h2>Prediction Result</h2>
+      <p class="result-text">{{ prediction }}</p>
+      <p class="price-message">
+        Latest Price USD: {{ latest_price }}
+      </p>
+      <p class="action-message">{{ action }}</p>
+      <p class="profit-message">{{ profit }}</p>
+    </div>
+    <a class="back-link" href="{{ url_for('analysis') }}">Back to Analysis</a>
+    <div class="note"><p>Stockinzy 2024 @ The prediction might differ subject to market and financial affairs.</p></div>
+    <img src="static/logimg3t.png" alt="Header Image" class="header-image">
+</body>
+</html>

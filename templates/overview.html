@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/png" href="static/foot_logo.png" />
+    <title>Stockinzy - Overview</title>
+    <style>
+        body {
+            background: linear-gradient(rgb(255, 255, 255), rgb(166, 196, 226));
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 160px;
+            margin: 10px;
+        }
+        h1 {
+            color: #000000;
+            font-size: 36px;
+            margin-bottom: 40px;
+            margin-top: -130px;
+            transition: background-image 0.3s; /* Add transition to ensure smooth effect */
+            padding: 10px;
+            font-style: italic;
+        }
+
+        h2 {
+            margin-top: -50px;
+        }
+        .stock-logo {
+            object-fit: cover; /* Ensures the image covers the entire area */
+            display: block; /* Ensures the image takes up the space */
+            margin: 10px auto; /* Adds some margin around the image */
+        }
+        .stock-item {
+            display: inline-block; /* Aligns items horizontally */
+            text-align: center; /* Centers text below the image */
+            margin: 10px; /* Adds some margin around each item */
+        }
+        .stock-symbol {
+            display: block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: rgb(255, 255, 255);
+            background-color: #3a6a9e;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        .stock-symbol:hover {
+            background-color: rgb(43, 138, 43);
+        }
+        .stocks-container {
+            margin-bottom: 40px; /* Adds space between stock items and the back link */
+        }
+        a {
+            font-weight: bold;
+            font-style: italic;
+            color: black;
+            text-decoration: underline;
+            margin-top: 20px;
+            transition: color 0.3s;
+        }
+        a:hover {
+            color: #066317;
+        }
+    </style>
+</head>
+<body>
+    <h1>Stock Overview</h1>
+    <h2>Nasdaq Registered, NYSE.</h2>
+    <div class="stocks-container">
+        {% for stock in stocks %}
+            <div class="stock-item">
+                <img 
+                    src="{{ url_for('static', filename=stock['stock_symbol'] + '.jpg') }}" 
+                    alt="{{ stock['stock_symbol'] }}" 
+                    class="stock-logo" 
+                    style="width: {{ image_sizes[stock['stock_symbol']]['width'] }}px; height: {{ image_sizes[stock['stock_symbol']]['height'] }}px;">
+                <a href="{{ url_for('stock_graph', stock_symbol=stock['stock_symbol']) }}" class="stock-symbol">{{ stock['stock_symbol'] }}</a>
+            </div>
+        {% endfor %}
+    </div>
+    <a href="{{ url_for('page1') }}">Back to Main Menu</a>
+</body>
+</html>

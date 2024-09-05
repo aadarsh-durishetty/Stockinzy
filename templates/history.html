@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/png" href="static/foot_logo.png" />
+    <title>Stockinzy - History</title>
+    <style>
+        body {
+            background: linear-gradient(rgb(255, 255, 255), rgb(166, 196, 226));
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 160px;
+            margin: 10px;
+            margin-top: -100px;
+        }
+        h2 {
+            font-style: italic;
+            color: #000000;
+            font-size: 28px;
+        }
+        table {
+            width: 80%;
+            margin: 5px auto;
+            border-collapse:collapse;
+            margin-top: 50px;
+            margin-bottom: 100px;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            background-color: white;
+        }
+        .footer {
+            position:relative;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+        }
+        .back-link {
+            font-weight: bold;
+            font-style: italic;
+            font-size: 16px;
+            color: #000000;
+            text-decoration: underline;
+            transition: color 0.3s ease;
+        }
+        .back-link:hover {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <h2>Buy & Sell History</h2>
+    <table>
+        <tr>
+            <th>Action</th>
+            <th>Stock Symbol</th>
+            <th>Quantity</th>
+            <th>Timestamp</th>
+        </tr>
+        {% for action in actions %}
+        <tr>
+            <td>{{ action['action'] }}</td>
+            <td>{{ action['stock_symbol'] }}</td>
+            <td>{{ action['quantity'] }}</td>
+            <td>{{ action['timestamp'] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <div class="footer">
+        <a href="{{ url_for('page1') }}" class="back-link">Go Back to Main Menu</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" type="image/png" href="static/foot_logo.png" />
+    <title>Stockinzy - GoatX</title>
+    <style>
+      body {
+        background: linear-gradient(rgb(255, 255, 255), rgb(166, 196, 226));
+        background-size: cover;
+        font-family: Arial, sans-serif;
+        text-align: center;
+        padding-top: 160px;
+        margin: 10px;
+        margin-bottom: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+      .container {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+      }
+      .images {
+        margin-top: -120px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-right: 120px; /* Space between images and form */
+        margin-left: -120px;
+      }
+      .images img {
+        width: 250px;
+        height: 200px;
+        border-radius: 20px;
+        margin-bottom: 20px; /* Space between images */
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .images img:hover {
+        transform: scale(1.1);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      }
+      h1 {
+        color: #000000;
+        font-size: 28px;
+        font-style: italic;
+        margin-top: -80px;
+      }
+      h2 {
+        font-style: italic;
+        font-size: 1.3em;
+      }
+      h3 {
+        color: #000000;
+      }
+      input[type="text"],
+      select {
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 50px;
+        border: 1px solid #ddd;
+        width: 200px;
+        margin-right: 10px;
+        box-sizing: border-box;
+        margin-bottom: 20px; /* Space above the button */
+      }
+      button[type="submit"] {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      button[type="submit"]:hover {
+        background-color: green;
+        transform: translateY(2px);
+      }
+      .tag-stockinzy {
+        margin-top: 80px;
+        margin-left: -50px;
+        padding: 1px;
+        height: 120px;
+        width: 400px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-weight: bolder;
+        font-size: 1.3em;
+        font-style: italic;
+        color: rgb(45, 45, 88);
+        text-align: center;
+        vertical-align: top;
+      }
+      .tag-goatx {
+        margin-top: -80px;
+        margin-left: 100px;
+        padding: 1px;
+        height: 120px;
+        width: 400px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-weight: bolder;
+        font-size: 1.3em;
+        font-style: italic;
+        color: rgb(45, 45, 88);
+        text-align: center;
+        vertical-align: top;
+      }
+      .foot-stockinzy{
+        height: 160px;
+        width: 220px;
+        margin-right: 10px;
+      }
+      .foot-goatx{
+        height: 60px;
+        width: 190px;
+        margin-right: -100px;
+      }
+      .back-link {
+        font-weight: bold;
+        font-style: italic;
+        text-decoration: underline;
+        margin-top: 20px;
+        font-size: 16px;
+        color: #0a0a0a;
+        transition: color 0.3s ease;
+      }
+      .back-link:hover {
+        color: green;
+      }
+      .footer {
+        position: relative;
+        bottom: -60px;
+        width: 100%;
+        text-align: center;
+      }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="images">
+            <img id="pic1" src="{{ url_for('static', filename='analysis1.jpg') }}" alt="Image 1">
+            <img id="pic2" src="{{ url_for('static', filename='analysis2.jpg') }}" alt="Image 2">
+            <img id="pic3" src="{{ url_for('static', filename='analysis3.jpg') }}" alt="Image 3">
+        </div>
+        <div>
+            <h1>Stockinzy GoatX</h1>
+            <h2>Verified & Trained Prediction Model.</h2>
+            <h3>Enter the date and select the stock for analysis</h3>
+            <form method="POST" action="{{ url_for('analysis') }}">
+                <input type="text" name="date" placeholder="DD-MM-YYYY" required />
+                <select name="stock_symbol">
+                    <option value="AAPL">Apple Inc.</option>
+                    <option value="ADBE">Adobe Inc.</option>
+                    <option value="AMZN">Amazon.com Inc.</option>
+                    <option value="CRM">Salesforce Inc.</option>
+                    <option value="CSCO">Cisco Systems Inc.</option>
+                    <option value="GOOGL">Alphabet Inc.</option>
+                    <option value="IBM">International Business Machines Inc.</option>
+                    <option value="INTC">Intel Corporation</option>
+                    <option value="META">Meta Platforms Inc.</option>
+                    <option value="MSFT">Microsoft Corporation</option>
+                    <option value="NFLX">Netflix Inc.</option>
+                    <option value="NVDA">NVIDIA Corporation</option>
+                    <option value="ORCL">Oracle Corporation</option>
+                    <option value="TSLA">Tesla Inc.</option>
+                </select>
+                <button type="submit">Predict</button>
+            </form>
+            <div class="tag-stockinzy">
+              <img src="static/logimg3t.png" alt="GoatX-logo" class="foot-stockinzy">
+          </div>
+          <div class="tag-goatx">
+            <img src="static/goatx-logo.png" alt="GoatX-logo" class="foot-goatx">
+        </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <a href="{{ url_for('page1') }}" class="back-link">Back to Main Menu</a>
+    </div>
+</body>
+</html>
