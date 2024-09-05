@@ -10,6 +10,7 @@ cachelib==0.9.0
 catalogue==2.0.10
 celery==5.4.0
 certifi==2024.7.4
+cffi==1.17.1
 charset-normalizer==3.3.2
 click==8.1.7
 click-didyoumean==0.3.1
@@ -35,6 +36,9 @@ folium==0.17.0
 fonttools==4.53.1
 geographiclib==2.0
 geopy==2.4.1
+gevent==24.2.1
+greenlet==3.0.3
+gunicorn==23.0.0
 h11==0.14.0
 idna==3.7
 itsdangerous==2.2.0
@@ -56,6 +60,7 @@ pandas==2.2.2
 pillow==10.4.0
 preshed==3.0.9
 prompt_toolkit==3.0.47
+pycparser==2.22
 pydantic==2.8.2
 pydantic_core==2.20.1
 pygame==2.6.0
@@ -96,4 +101,5 @@ wrapt==1.16.0
 wsproto==1.2.0
 xgboost==2.1.0
 xyzservices==2024.6.0
-
+zope.event==5.0
+zope.interface==7.0.3
